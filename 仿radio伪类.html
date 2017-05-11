@@ -1,0 +1,15 @@
+<style type="text/css">
+/* appearance:none;//清除默认样式（注意写前缀） */
+input,textarea{-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;border-radius:0;}
+/* 设置具体input的样式 (圆形添加border-radius:50%;)*/
+input[type='radio'],input[type='checkbox']{width:13px;height:13px;border:3px solid #f39800;outline:none;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;cursor:pointer;}
+/* 设置点击时的样式 */
+input[type='radio']:after,input[type='checkbox']:after{margin-top:-1px;width:9px;height:9px;content:'';background-color:#f39800;}
+input[type='radio']:checked:after,input[type='checkbox']:checked:after{display:block;outline:none;}
+</style>
+<body>
+	<div class="item-radio clearfix main-font">
+		<span><input type="radio" name="is_study" id="is_study" value="1"></input>是</span>
+		<span><input type="radio" name="is_study" id="is_study" value="0"></input>否</span>
+	</div>
+</body>
