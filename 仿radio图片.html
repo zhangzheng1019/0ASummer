@@ -1,0 +1,58 @@
+<style type="text/css">
+.item-radio {
+  color: #f26521;
+  font-family: '幼圆';
+  font-size: .33rem;
+  font-weight: 700;
+  position: relative;
+  padding-left: .53rem;
+  cursor: pointer;
+}
+
+.pl14 {
+  padding-left: .37rem;
+}
+
+.icon-circle {
+  background-image: url('image/icon-circle.png');
+  background-size: .37rem;
+  background-repeat: no-repeat;
+}
+
+.icon-circle-active {
+  background-image: url('image/icon-circle-active.png');
+  background-size: .37rem;
+  background-repeat: no-repeat;
+}
+
+.icon-circle-position {
+  width: .37rem;
+  height: .37rem;
+  position: absolute;
+  left: 0;
+}
+</style>
+<div class="item">
+  <p class="item-title"><span class="required">*</span> 2.你是</p>
+  <div class="item-content pl14 item-content-sex">
+    <p class="pb26 sex-male item-radio" name="sex"><i class="icon-circle icon-circle-position"></i>帅大叔</p>
+    <input type="hidden" name="sex" value="male">
+    <p class="sex-female item-radio" name="sex"> <i class="icon-circle icon-circle-position"></i>萌妹纸</p>
+    <input type="hidden" name="sex" value="female">
+  </div>
+</div>
+<script src="js/jquery.js"></script>
+<script type="text/javascript">
+var sex = $("p[name='sex']");
+radioSwitch(sex);
+
+function radioSwitch(cla) {
+  var len = cla.length;
+  for (var i = 0; i < len; i++) {
+    $(cla[i]).on("click", function() {
+      $(this).children('i').removeClass('icon-circle').addClass('icon-circle-active');
+      $(this).siblings('p').children('i').removeClass('icon-circle-active').addClass('icon-circle');
+    })
+  }
+}
+</script>
