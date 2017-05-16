@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        .my-click{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="my-click">
+    
+</div>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+(function($) {
+    //屏蔽，适合单个元素. 
+    $.fn.mask = function() {
+            var divHtml = '<div class="divMask" style="position: absolute; width: 2.93rem; height: 2.67rem; left: 0px; top: -2.67rem; background: #fff; opacity: 0; filter: alpha(opacity=0)"> </div>';
+            $(this).wrap('<span style="position: relative"></span>');
+            $(this).parent().append(divHtml);
+            $(this).data("mask", "true");
+        }
+    //取消屏蔽 
+    $.fn.unmask = function() {
+        $(this).parent().find(".divMask").remove();
+        $(this).unwrap();
+        $(this).data("mask", "false");
+    }
+$(function(){
+    $('.my-click').on('click',function(){
+        /* 使用时，修改divHtml样式即可 */
+        $(this).mask();
+    })
+})
+
+
+})(jQuery);
+</script>
+</body>
+</html>
+
