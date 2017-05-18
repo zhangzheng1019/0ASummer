@@ -1,5 +1,5 @@
 <style type="text/css">
-.bin{background: rgba(243,152,0,.9);color: #fff;width: 60%;position:fixed;left:20%;top:40%;text-align: center;font-size: 14px;line-height: 22px;padding:10px;border-radius: 6px;}
+.error-tip{background: rgba(243,152,0,.9);color: #fff;width: 60%;position:fixed;left:20%;top:40%;text-align: center;font-size: 14px;line-height: 22px;padding:10px;border-radius: 6px;}
 .content{
 	width: 100%;
 	height: 500px;
@@ -13,7 +13,7 @@
 <script type="text/javascript">
 $.usertips = function(options) {
     var dft = {
-        class:"bin",
+        class:"error-tip",
         text:"",
         time:1500
     };
@@ -21,14 +21,15 @@ $.usertips = function(options) {
     var style = ops.class;
     var cpTxt = '<div' + ' style="z-index:999" ' + 'class=' +  style +'>'+ ops.text + '</div>';
     $('body').append(cpTxt);
-    $('.bin').fadeOut(ops.time,function(){
+    $('.error-tip').fadeOut(ops.time,function(){
         $(this).remove();
     });
 };
-/*调用方法*/
+/*调用方法,默认时间(time):1500*/
 $.usertips({text:'请填写您的姓名，不能为空',time:3000});
+
 $('button').on('click',function(){
-$.usertips({text:'请填写您的姓名，不能为空',time:3000});
+    $.usertips({text:'请填写您的姓名，不能为空',time:3000});
 	
 })
 </script>
