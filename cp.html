@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="css/basic.css">
+  <style type="text/css">
+  @charset 'UTF-8';
+.container{background-color:#fcf4e8;}
+.item{width:9.07rem;margin:0 auto;padding-top:1.17rem;}
+.item-head::before{content:'';display:inline-block;background-color:#6c5344;width:9.04rem;height:1.3rem;border-bottom-left-radius:10px;border-bottom-right-radius:10px;position:absolute;top:2.5rem;z-index:-1;}
+.item-head{font-size:0;height:3.78rem;z-index:1}
+.item-content{display: none;}
+.item-cp{width:5.33rem;height:2.96rem;border-top-left-radius:10px;border-bottom-left-radius:10px;overflow-y:hidden;}
+.item-cp-img{width:5.33rem;border-top-left-radius:10px;border-bottom-left-radius:10px;}
+.item-cp-a{font-size:.4rem;background-color:rgba(51,51,51,0.51);color:#fff;top:0;border-top-left-radius:10px;border-bottom-right-radius:10px;padding:.24rem .13rem .13rem .13rem;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.item-cp-a::after{content:'点击查看菜谱 >>>>>';display:block;font-style:italic;color:#fff;font-size:.2rem;}
+.item-lj{width:3.72rem;height:2.96rem;background-color:#e6ddca;border-top-right-radius:10px;border-bottom-right-radius:10px;}
+.item-lj-img{width:3.17rem;padding-left:.37rem;padding-top:.82rem;}
+.item-lj-btn{width:2.7rem;font-size:.36rem;padding-top:.12rem;padding-bottom:.12rem;border-radius:20px;background-color:#df6238;text-align:center;margin-left:.44rem;}
+.item-lj-btn::before{content:'';display:inline-block;width:.3rem;height:.4rem;background-image:url('image/icon-lingjuan.png');background-repeat:no-repeat;background-size:100%;vertical-align:middle;}
+.item-lj-btn::after{content:'我要领劵';display:inline-block;color:#fff;padding-left:.26rem;}
+.item-user-thumb{width:1.68rem;border-radius:100%;right:.33rem;top:-.8rem;}
+.icon-down{left:3rem;top:82%;color:#fff;font-size:0.3467rem;text-align:center;}
+.icon-down:before{content:'';display:inline-block;width:0.4267rem;height:0.3rem;background-image:url(image/icon-down.png);background-repeat:no-repeat;background-size:100%;}
+.icon-top{display:none;left:4rem;top:82%;color:#fff;font-size:0.3467rem;text-align:center;}
+.icon-top:before{content:'';display:inline-block;width:0.4267rem;height:0.3rem;background-image:url(image/icon-top.png);background-repeat:no-repeat;background-size:100%;}
+/*.item-content{display:none;}*/
+.info-thumb{width:1.53rem;border-radius:100%;}
+.info-remark{font-size:.53rem;color:#6c5344;}
+.info-name,.info-rank{font-size:.28rem;color:#6c5344;}
+.rater-info{width:3rem;margin:0 auto;padding-top:.26rem;padding-bottom:.26rem;}
+.cps{width:8.4rem;margin:0 auto;border-top:1px solid #6c5344;}
+.cp-head{padding-top:.26rem;padding-bottom:.26rem;}
+.cp-id{background-color:#6c5344;color:#fff;padding:.13rem;border-radius:10px;}
+.cp-id::before{content:'ID';display:inline-block;}
+.cp-name{color:#f26539;font-size:.37rem;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.cp-conten-left{width:3.8rem;height:3.17rem;}
+.cp-img{width:3.8rem;border-top-left-radius:10px;border-bottom-left-radius:10px;}
+.cp-img-a::after{content:'点击查看菜谱 >>>>>';display:block;font-size:.24rem;background-color:rgba(51,51,51,0.51);color:#fff;position:absolute;right:0;bottom:.5rem;padding:.06rem;border-top-left-radius:5px;}
+.cp-content-right{width:4.58rem;padding-bottom:.11rem;background-color:#e6ddca;border-top-right-radius: 10px;border-bottom-right-radius: 10px;}
+.cp-comment{color:#6c5344;font-size:.28rem;padding:.11rem .11rem 0 .11rem;display:-webkit-box!important;overflow:hidden;text-overflow:ellipsis;word-break:break-all;-webkit-box-orient:vertical;-webkit-line-clamp:5;}
+.comment-item{padding-left:.1rem;font-size:.1rem}
+.comment-yy,.comment-yz,.comment-cy,.comment-cjyy{color:#f26539;font-size:.24rem;}
+.icon-star{width:.21rem;margin-left: -.05rem;}
+.comment-left{width: 1.73rem;}
+.comment-right{width: 2.1rem;}
+.comment-cjyy{letter-spacing:-.02rem;margin-right:.02rem;}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+	  <div class="content relative">
+	    <div class="item">
+	      <div class="item-head clearfix relative">
+		        <div class="item-cp left">
+		          <img src="image/boluo.jpg" class="item-cp-img db">
+		          <a href="javascript:void(0)" class="item-cp-a db absolute">粗粮凤梨炒饭</a>
+		        </div>
+		        <div class="item-lj left">
+		          <img src="image/guo.png" class="item-lj-img db">
+		          <a href="javascript:void(0)" class="db item-lj-btn"></a>
+		        </div>
+		        <img src="image/userthumb.jpg" class="item-user-thumb db absolute">
+		        <p class="icon-down absolute"> 点击查看更多炒锅菜谱</p>
+		        <p class="icon-top absolute"> 收起菜谱</p>
+	      </div>
+	      <div class="item-content">
+				<div class="rater-info clearfix">
+					<img src="image/pingwei.jpg" class="db info-thumb left">
+					<div class="info right">
+					  <p class="info-remark">评委</p>
+					  <p class="info-name">hi小宝君</p>
+					  <p class="info-rank">超级厨师</p>
+					</div>
+				</div>
+				<ul class="cps">
+					<li class="cp-item">
+						<div class="cp-head">
+							<a href="javascript:void(0)" class="cp-id dib"> jmy的私房菜</a>
+							<p class="cp-name dib">桂花紫薯山药糕</p>
+						</div>
+						<div class="cp-content clearfix">
+							<div class="cp-conten-left left dib relative">
+								<img src="image/guihua.jpg" class="db cp-img">
+								<a class="cp-img-a" href="javascript:void(0)"></a>
+							</div>
+							<div class="cp-content-right right dib">
+								<p class="cp-comment">点评:<br>“粗粮也可以高颜值。选用紫薯和山药，颜色搭配和营养都相得益彰，些许烹饪，即可方便地品尝到自然风味，吸收完整的养分。”</p>
+								
+								<div class="comment-item dib comment-left">
+									<span class="comment-yy">营养</span>
+									<img src="image/icon-star.png" class="icon-star dib">
+									<!-- <img src="image/icon-star.png" class="icon-star dib"> -->
+									<!-- <img src="image/icon-star.png" class="icon-star dib"> -->
+									<img src="image/icon-star.png" class="icon-star dib">
+									<img src="image/icon-star.png" class="icon-star dib">
+								</div>
+								<div class="comment-item dib comment-right">
+									<span class="comment-yz">颜&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;值</span>
+									<img src="image/icon-star.png" class="icon-star dib">
+									<img src="image/icon-star.png" class="icon-star dib">
+									<img src="image/icon-star.png" class="icon-star dib">
+									<img src="image/icon-star.png" class="icon-star dib">
+									<img src="image/icon-star.png" class="icon-star dib">
+								</div>
+								<div class="comment-item dib comment-left">
+									<span class="comment-cy">创意</span>
+									<img src="image/icon-star.png" class="icon-star dib">
+									<img src="image/icon-star.png" class="icon-star dib">
+									<img src="image/icon-star.png" class="icon-star dib">
+									<img src="image/icon-star.png" class="icon-star dib">
+									<img src="image/icon-star.png" class="icon-star dib">
+								</div>
+								<div class="comment-item dib comment-right">
+									<span class="comment-cjyy">厨具运用</span>
+									<img src="image/icon-star.png" class="icon-star dib">
+									<img src="image/icon-star.png" class="icon-star dib">
+									<img src="image/icon-star.png" class="icon-star dib">
+									<img src="image/icon-star.png" class="icon-star dib">
+									<img src="image/icon-star.png" class="icon-star dib">
+								</div>
+							</div>	
+						</div>
+					</li>
+				</ul>	
+	      </div>
+	    </div>
+	    
+    </div>
+  </div>
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/rem.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // initRem();
+
+    function initRem() {
+      var fontSizeS = $('body').width() / 10 + 'px';
+      $("html").css({
+        fontSize: fontSizeS
+      });
+    }
+
+    var itemsDown = $('.icon-down');
+    var itemDownLen = itemsDown.length;
+    for (var i = 0; i < itemDownLen; i++) {
+     	$(itemsDown[i]).on("click",function(){
+     		$(this).parent().nextAll('.item-content').css({
+     			display:'block'
+     		});
+            $(this).nextAll('.icon-top').css({
+                display:'block'
+            });
+     		$(this).css({
+     			display:'none'
+     		})
+     	})
+     }
+
+    var itemsTop = $('.icon-top');
+    var itemTopLen = itemsTop.length;
+    for (var i = 0; i < itemTopLen; i++) {
+     	$(itemsTop[i]).on("click",function(){
+     		$(this).parent().nextAll('.item-content').css({
+     			display:'none'
+     		});
+     		$(this).prevAll('.icon-down').css({
+     			display:'block'
+     		});
+     		$(this).css({
+     			display:'none'
+     		});
+     	})
+     } 
+  })
+  </script>
+</body>
+
+</html>

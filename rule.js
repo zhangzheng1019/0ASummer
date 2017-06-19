@@ -5,7 +5,15 @@
  } else {
      myData.tel = cellphone;
  }
- 
+ /*邮箱验证*/
+ function isEmail(email){ 
+    var emailreg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/; 
+    if(!emailreg.test(email)){
+        return false;
+    } else{
+        myData.email = email;
+    }
+} 
  /**
   * 年龄（1-120）验证：正则：/^(?:[1-9][0-9]?|1[01][0-9]|120)$/
   * 年龄（18-100）验证：正则：/^(1[8-9]|[2-9]\d|100)$/

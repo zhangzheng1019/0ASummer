@@ -1,0 +1,97 @@
+<style type="text/css">
+@-webkit-keyframes moveToTop {
+    from { }
+    to { -webkit-transform: translateY(-100%); }
+}
+@keyframes moveToTop {
+    from { }
+    to {  transform: translateY(-100%); }
+}    
+@-webkit-keyframes moveFromBottom {
+    from { -webkit-transform: translateY(100%); }
+}
+@keyframes moveFromBottom {
+    from { transform: translateY(100%); }
+}    
+@-webkit-keyframes moveToBottom {
+    from { }
+    to { -webkit-transform: translateY(100%); }
+}
+@keyframes moveToBottom {
+    from { }
+    to {  transform: translateY(100%); }
+}
+
+@-webkit-keyframes moveFromTop {
+    from { -webkit-transform: translateY(-100%); }
+}
+@keyframes moveFromTop {
+    from { transform: translateY(-100%); }
+}
+ @-webkit-keyframes sco{
+        0%{-webkit-transform:rotate(0deg);}
+        100%{-webkit-transform:rotate(360deg);}
+    } 
+    @keyframes sco{
+        0%{transform:rotate(0deg);}
+        100%{transform:rotate(360deg);}
+    }
+.page-moveFromTop{
+    -webkit-animation: moveFromTop .6s ease both;
+    animation: moveFromTop .6s ease both;
+}
+.page-moveToTop{
+    -webkit-animation: moveToTop .6s ease both;
+    animation: moveToTop .6s ease both;
+}
+.page-moveFromBottom{
+    -webkit-animation: moveFromBottom .6s ease both;
+    animation: moveFromBottom .6s ease both;
+}
+.page-moveToBottom{
+    -webkit-animation: moveToBottom .6s ease both;
+    animation: moveToBottom .6s ease both;
+}
+.page{
+    position: absolute;top: 0;left: 0;right: 0;bottom: 0;
+}
+.hide{display: none;}
+#p0{background: #daa;}
+#p1{background: #ffa;}
+</style>
+<body>
+	<div class="wrap page" id="p0"><a href="#" onclick="transPage('#p0','#p1')">跳转</a></div>
+	<div class="wrap page hide" id="p1"><a href="#" onclick="transPage('#p1','#p0')">返回</a></div>
+</body>
+<script src="http://i1.douguo.net/static/img/wap/huodong/sycplh/js/zepto.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$width = $(document).width();
+	$height= $(window).height();
+	$('.wrap').css({width:$width,height:$height});
+	$('#p0').swipeUp(function(){
+        transPage('#p0','#p1');
+    });
+    $('#p1').swipeUp(function(){
+        transPage('#p1','#p2');
+    });
+})
+/**
+ * [transPage 页面切换]
+ * @param  {[类]} lastPage [当前的页面]
+ * @param  {[类]} nowPage  [要跳转到的页面]
+ * @return {[type]}          [description]
+ */
+function transPage (lastPage,nowPage) {
+	var outClass = 'page-moveToTop',
+	    inClass = 'page-moveFromBottom';   
+	    $(nowPage).removeClass("hide");
+	    $(lastPage).addClass(outClass);
+	    $(nowPage).addClass(inClass);
+	setTimeout(function(){
+	    $(lastPage).addClass("hide");
+	    $(lastPage).removeClass(outClass);
+	    $(nowPage).removeClass(inClass); 
+	},600) 
+};
+</script>
