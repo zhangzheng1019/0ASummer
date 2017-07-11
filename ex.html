@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+     #center {
+        position: absolute;
+        width: 500px;
+        height: 300px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: red;
+    }
+    
+    #sanjiao {
+        width: 0;
+        height: 0;
+        border-width: 20px;
+        border-style: solid;
+        border-color: red transparent transparent transparent;
+    }
+    
+    #demo {
+        /*width: 100px;
+        height: 100px;
+        background-color: #fff;*/
+        /*position: relative;*/
+        /*border: 2px solid #333;*/
+        position: absolute;
+    }
+    
+    #demo:after,
+    #demo:before {
+        border: solid transparent;
+        content: ' ';
+        height: 0;
+        left: 100%;
+        position: absolute;
+        width: 0;
+    }
+    
+    #demo:after {
+        border-width: 10px;
+        border-left-color: #fff;
+        top: 20px;
+    }
+    
+    #demo:before {
+        border-width: 12px;
+        border-left-color: #000;
+        top: 18px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="center"></div>
+    <div id="sanjiao"></div>
+    <div id="demo"></div>
+</body>
+
+</html>
