@@ -1,16 +1,25 @@
-/* 获取url地址 
-* 使用: $.getUrlParam('uid');
+/* 获取url地址中参数
+* 适用于：www.baidu.com/act?detail=30&uid=109
+* 使用: $.getUrlParam('uid'); //109
 */
 (function($) {
     $.getUrlParam = function(name) {
-        var reg = new RegExp("(^|&)" +
-            name + "=([^&]*)(&|$)");
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
         if (r != null) return unescape(r[2]);
         return null;
     }
 })(jQuery);
-
+/* 获取url地址中参数 
+* 适用于：www.baidu.com/act/20?detail=30&uid=109
+* 使用: $.getUrlParam('act'); //20
+*/
+function getUrlParam(name){
+    var url = window.location.href;
+    var r = url.substring(url.indexOf(name)+name.length+1,url.indexOf('?'));
+    if(r != null) return r;
+    return null;
+}
 /*获取光标位置函数*/
 function getCursortPosition (ctrl) {
     var CaretPos = 0;   // IE Support
