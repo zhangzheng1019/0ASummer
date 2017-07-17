@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <title>网络在线与离线</title>
+</head>
+
+<body>
+    <div id="status"></div>
+    <script type="text/javascript" language="javascript" charset="utf-8">
+	    $$ = function(id) { 
+	    	return document.getElementById(id); 
+	    };
+	    if (navigator.onLine) { 
+	    	$$("status").innerHTML = "第一次加载时在线"; 
+	    } else { 
+	    	$$("status").innerHTML = "第一次加载时离线"; 
+	    } 
+	    window.addEventListener("online", online, false);
+
+	    function online() { 
+	    	$$("status").innerHTML = "on"; 
+	    } 
+	    window.addEventListener("offline", offline, false);
+
+	    function offline() { 
+	    	$$("status").innerHTML = "off"; 
+	    }
+    </script>
+</body>
+
+</html>
