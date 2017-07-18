@@ -1,7 +1,19 @@
+/**
+ * [$$ 获取和遍历匹配特定CSS选择符的DOM元素]
+ * @param  {[type]} selector [description]
+ * @param  {[type]} context  [description]
+ * @return {[type]}          [description]
+ */
+function $$(selector, context) {
+    context = context || document;
+    var elements = context.querySelectorAll(selector);
+    return Array.prototype.slice.call(elements);
+}
+
 /* 获取url地址中参数
-* 适用于：www.baidu.com/act?detail=30&uid=109
-* 使用: $.getUrlParam('uid'); //109
-*/
+ * 适用于：www.baidu.com/act?detail=30&uid=109
+ * 使用: $.getUrlParam('uid'); //109
+ */
 (function($) {
     $.getUrlParam = function(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -11,22 +23,22 @@
     }
 })(jQuery);
 /* 获取url地址中参数 
-* 适用于：www.baidu.com/act/20?detail=30&uid=109
-* 使用: $.getUrlParam('act'); //20
-*/
-function getUrlParam(name){
+ * 适用于：www.baidu.com/act/20?detail=30&uid=109
+ * 使用: $.getUrlParam('act'); //20
+ */
+function getUrlParam(name) {
     var url = window.location.href;
-    var r = url.substring(url.indexOf(name)+name.length+1,url.indexOf('?'));
-    if(r != null) return r;
+    var r = url.substring(url.indexOf(name) + name.length + 1, url.indexOf('?'));
+    if (r != null) return r;
     return null;
 }
 /*获取光标位置函数*/
-function getCursortPosition (ctrl) {
-    var CaretPos = 0;   // IE Support
+function getCursortPosition(ctrl) {
+    var CaretPos = 0; // IE Support
     if (document.selection) {
-    ctrl.focus ();
-        var Sel = document.selection.createRange ();
-        Sel.moveStart ('character', -ctrl.value.length);
+        ctrl.focus();
+        var Sel = document.selection.createRange();
+        Sel.moveStart('character', -ctrl.value.length);
         CaretPos = Sel.text.length;
     }
     // Firefox support
@@ -35,13 +47,11 @@ function getCursortPosition (ctrl) {
     return (CaretPos);
 }
 /*设置光标位置函数*/
-function setCaretPosition(ctrl, pos){
-    if(ctrl.setSelectionRange)
-    {
+function setCaretPosition(ctrl, pos) {
+    if (ctrl.setSelectionRange) {
         ctrl.focus();
-        ctrl.setSelectionRange(pos,pos);
-    }
-    else if (ctrl.createTextRange) {
+        ctrl.setSelectionRange(pos, pos);
+    } else if (ctrl.createTextRange) {
         var range = ctrl.createTextRange();
         range.collapse(true);
         range.moveEnd('character', pos);
@@ -66,8 +76,8 @@ function getSelectText() {
     return text;
 }
 /*手机号验证*/
-function isPhone(phone){
-    var phone = $.trim($('#'+phone).val());
+function isPhone(phone) {
+    var phone = $.trim($('#' + phone).val());
     var phonepreg = /^1[34578][0-9]{9}$/;
     if (!phonepreg.test(cellphone)) {
         return false;
@@ -77,7 +87,7 @@ function isPhone(phone){
 }
 /*邮箱验证*/
 function isEmail(email) {
-    var email = $.trim($('#'+email).val());
+    var email = $.trim($('#' + email).val());
     var emailreg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
     if (!emailreg.test(email)) {
         return false;
@@ -89,8 +99,8 @@ function isEmail(email) {
  * 年龄（1-120）验证：正则：/^(?:[1-9][0-9]?|1[01][0-9]|120)$/
  * 年龄（18-100）验证：正则：/^(1[8-9]|[2-9]\d|100)$/
  */
-function isAge(age){
-    var age = $.trim($('#'+age).val());
+function isAge(age) {
+    var age = $.trim($('#' + age).val());
     var agepreg = /^(?:[1-9][0-9]?|1[01][0-9]|120)$/;
     if (age.length <= 0 || !agepreg.test(age)) {
         $('#errortip').html('请输入正确的年龄');
