@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>图片点击放大居中显示</title>
+    <style type="text/css">
+.wrap-cover{display:none}
+.cover{position:fixed;top:0;right:0;left:0;bottom:0;background:rgba(255,255,255,.8)}
+.cover-img{width:800px;display:block;position:absolute;top:0;right:0;left:0;bottom:0;margin:auto;z-index:9999}
+    </style>
+    <script src="http://i1.douguo.net/static/wap/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var $imgs = $(".imgs"),
+            $body = $('body'),
+            $cover = $('.cover'),
+            $wrapCover = $('.wrap-cover'),
+            $coverImg = $('.cover-img'),
+            imgLen = $imgs.length;
+        for (var i = 0; i < imgLen; i++) { $($imgs[i]).on('click', largeImg($(this))) }
+
+        function largeImg(that) {
+            $coverImg.attr('src', that.attr('src'));
+            $wrapCover.fadeIn();
+            $coverImg.on("click", removeImg)
+        }
+
+        function removeImg() { $wrapCover.fadeOut(); }
+    })
+    </script>
+</head>
+
+<body>
+    <div>
+        <img class="imgs" src="http://upload-images.jianshu.io/upload_images/599584-24a39ffd9677c4be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="400">
+        <img class="imgs" src="http://upload-images.jianshu.io/upload_images/599584-e92564f76edea412.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="400">
+    </div>
+    <div class="wrap-cover">
+        <div class="cover"></div>
+        <img class="cover-img" />
+    </div>
+</body>
+
+</html>
