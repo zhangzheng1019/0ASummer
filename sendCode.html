@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<span id="sendcode">获取验证码</span>
+
+	<script src="https://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+	<script>
+	$(function(){
+		var sendVercode = $('#sendcode')
+		var iCount = 90;
+		sendVercode.click(function(){
+			changeTime();
+			// $.ajax({
+			// 	type:'post',
+			// 	url:"xxxx",
+			// 	data:{ddd:aaa},
+			// 	dataType:json,
+			// 	success:function(res){
+			// 		if(1 == res.status){
+			// 			//请求成功
+			// 			sendVercode.attr("disabled", true);
+   //                      sendVercode.html("重新发送（" + iCount + "秒）");
+   //                      iCount --;
+   //                      window.setTimeout(function(){changeTime();}, 1000);
+			// 		}else{
+			// 			//请求失败
+			// 		}
+			// 	}	
+			// })
+		})
+		function changeTime(){
+	        if (iCount == 0) {
+	            sendVercode.removeAttr("disabled");
+	            sendVercode.removeAttr("style");
+	            sendVercode.html("获取验证码");
+	            iCount  = 60;
+	        } else {
+	            sendVercode.attr("disabled", true);
+	            sendVercode.html("重新发送（" + iCount + "秒）");
+	            iCount--;
+	            
+	            window.setTimeout(function(){changeTime();}, 1000);
+	        }
+	    }	
+	})
+	</script>
+</body>
+</html>
