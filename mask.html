@@ -4,6 +4,18 @@
 <head>
     <title></title>
     <style type="text/css">
+    //兼容ie，虚拟点击事件
+	.bopa {
+	    background: red;
+	    opacity: 0;
+	    -webkit-opacity: 0;
+	    -moz-opacity: 0;
+	    -khtml-opacity: 0;
+	    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	    filter: alpha(opacity=0);
+	    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+	}
+
         .my-click{
             width: 200px;
             height: 200px;
