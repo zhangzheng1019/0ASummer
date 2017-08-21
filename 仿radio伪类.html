@@ -1,15 +1,30 @@
 <style type="text/css">
+/* input父级元素加一个line-height; input 和label加一个vertical-align:middle;*/
 /* appearance:none;//清除默认样式（注意写前缀） */
 input,textarea{-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;border-radius:0;}
 /* 设置具体input的样式 (圆形添加border-radius:50%;)*/
-input[type='radio'],input[type='checkbox']{width:13px;height:13px;border:3px solid #f39800;outline:none;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;cursor:pointer;}
+#fangkuai input[type='radio'],#fangkuai input[type='checkbox']{width:24px;height:24px;border:2px solid #f39800;outline:none;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;cursor:pointer; vertical-align: middle;}
 /* 设置点击时的样式 */
-input[type='radio']:after,input[type='checkbox']:after{margin-top:-1px;width:9px;height:9px;content:'';background-color:#f39800;}
-input[type='radio']:checked:after,input[type='checkbox']:checked:after{display:block;outline:none;}
+#fangkuai input[type='radio']:after,#fangkuai input[type='checkbox']:after{width:20px;height:20px;content:'';background-color:#f39800;}
+#fangkuai input[type='radio']:checked:after,#fangkuai input[type='checkbox']:checked:after{display:block;outline:none;}
+
+/* 设置具体input的样式（打对勾：对勾宽高为input的一半）*/
+#duigou input[type="radio"], #duigou input[type="checkbox"]{ width: 24px;height: 24px;border: 2px solid #f39800;outline: none;-webkit-appearance:none; -moz-appearance: none; -ms-appearance:none; -o-appearance: none;appearance:none; cursor: pointer; border-radius: 100%; background-color: #f39800; vertical-align: middle; display: inline-block;}
+#duigou input[type='radio']:checked,#duigou input[type='checkbox']:checked{ background: #f39800; border: 1px solid #f39800; }
+
+#duigou input[type="radio"]:after, #duigou input[type="checkbox"]:after{content: "";display: block; width: 12px;height: 6px;border-left: 2px solid #fff;border-bottom: 2px solid #fff;border-top: 1px solid transparent;border-right: 1px solid transparent; transform: rotate(-45deg); margin-top: 3px; margin-left: 3px;}
+#duigou input[type='radio']:checked:after,#duigou input[type='checkbox']:checked:after{display:block;outline:none;}
+label{vertical-align: middle; display: inline-block; }
+span{ line-height: 40px;display: block; vertical-align: middle; }
 </style>
 <body>
-	<div class="item-radio clearfix main-font">
-		<span><input type="radio" name="is_study" id="is_study" value="1"></input>是</span>
-		<span><input type="radio" name="is_study" id="is_study" value="0"></input>否</span>
+	<div id="fangkuai" class="item-radio clearfix main-font">
+		<span><input type="radio" name="is_study" id="is_study1" value="1"></input><label for="is_study1">是</label></span>
+		<span><input type="radio" name="is_study" id="is_study0" value="0"></input><label for="is_study0">否</label></span>
 	</div>
+
+	<div id="duigou">
+		<span><input type="radio" name="study" id="dg_is_study1" value="1"></input><label for="dg_is_study1">是</label></span>
+		<span><input type="radio" name="study" id="dg_is_study0" value="0"></input><label for="dg_is_study0">否</label></span>
+	</div>	
 </body>
