@@ -1,4 +1,38 @@
 /**
+ * [is_array 判断是否数组arr中是否存在val属性]
+ * @param  {[type]}  arr [数组]
+ * @param  {[type]}  val [查看的val属性值]
+ * @return {Boolean}     [布尔值 true或false]
+ */
+function is_array(arr, val) {
+    var arlen = arr.length; 
+    var test = '';      
+    for (var s = 0; s < arlen; s++) {
+        test = arr[s].toString();
+        if (test == val) {
+            return true;
+        }
+    }
+    return false;
+}
+
+/**
+ * [removeArrVal 删除数组中的某一个val属性]
+ * @param  {[type]} arr [数组]
+ * @param  {[type]} val [要删除的属性值]
+ * @return {[type]}     [删除之后存到arr中]
+ */
+function removeArrVal(arr, val) {
+    var arlen = arr.length;             
+    for(var i=0; i<arlen; i++) {
+        if(arr[i] == val) {             
+            arr.splice(i,1);                  
+          break;
+        }
+    }
+}
+
+/**
  * [$$ 获取和遍历匹配特定CSS选择符的DOM元素]
  * @param  {[type]} selector [description]
  * @param  {[type]} context  [description]
