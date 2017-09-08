@@ -1,0 +1,294 @@
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<style type="text/css">
+	@charset "UTF-8";
+	html,body,menu,ul,ol,li,p,div,form,h1,h2,h3,h4,h5,h6,img,a img,input,textarea,fieldset{padding:0;margin:0;border:0;}
+	h1,h2,h3,h4,h5{font-weight:normal;}
+	ul li{list-style:none;}
+	a{color:#333;text-decoration:none;}
+	a:hover{text-decoration:none;}
+	a,img,i,span,li{-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;}
+	img{border-style:none;}
+	div{-webkit-tap-highlight-color:transparent;}
+	.clearfix:after{clear:both;content:".";display:block;font-size:0;height:0;line-height:0;visibility:hidden}
+	.clearfix{zoom:1;}
+	body{margin:0 auto;font-size:14px;font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif;}
+
+	.hs-game{ width: 100%; background: #e70012}
+	.game-recipes { width: 93.33%; margin: 0 auto;overflow: hidden; position: relative;padding-top: 20px; }
+	.game-recipes a { display: block; }
+	.game-recipes img { width: 100%; display: block; }
+	.game-recipes::after { content: "西趣奶炖鲜蔬鸡肉"; color: #fff; font-size: .37rem; display: block; background-color: rgba(26, 18, 9, .38); position: absolute; bottom: 0; left: 0; right: 0; text-align: center; padding: 12px 0; }
+	.game-step{ padding-top: 25px; width: 93.33%; margin: 0 auto;position: relative;}
+	.game-step .step-item{ padding: 10px 0; position: relative;}
+	.game-step .step-img{width: 14.4% ; display: inline-block;vertical-align: top;padding-right:1.42%; }
+	.game-step .step-desc{ width: 79.4%;display: inline-block; position: relative;padding-top: 2.8%;}
+	.game-step .step-detail{ position: relative; }
+	.game-step .step1-detail { width: 76.16%;}
+	.game-step .detail-img{ width: 100%;display: block; position: relative;}
+	.game-submit-img{ width: 82%;padding-top: 40px;padding-bottom: 20px; margin:0 auto; display: block; }
+	
+	.hide{ display: none; }
+	.hs-game-overlay{ position: fixed;top: 0; right: 0; left: 0; bottom: 0; background: rgba(69, 69, 69, .27); z-index: 95;}
+	.hs-overlay-content { position: fixed; top: 50%; left: 50%; z-index: 100; -webkit-transform:translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%);  height: auto; width: 100%}
+	.hs-overlay-img{ width: 95%; display: block; margin: 0 auto;}
+	.close-overlay { position: absolute; bottom: 4%; right: 33%; left: 33%; height: 80px;}
+</style>
+
+<div class="hs-game">
+	<div class="game-recipes">
+		<img src="http://i1.douguo.net//upload/banner/1504087364.jpg">
+	</div>
+	<div class="game-step">
+		<div class="step1-item step-item">
+			<img src="http://i1.douguo.net//upload/banner/1504243410.png" alt="step1" class="step-img step1">
+			<div class="step1-desc step-desc">
+				<div class="step1-detail step-detail">
+					<img class="detail-img" src="http://i1.douguo.net//upload/banner/1504243489.png" data-step="1">
+				</div>
+			</div>
+		</div>
+		<div class="step2-item step-item">
+			<img src="http://i1.douguo.net//upload/banner/1504243424.png" alt="step2" class="step-img step2">
+			<div class="step2-desc step-desc">
+				<div class=" step-detail">
+					<img class="detail-img" src="http://i1.douguo.net//upload/banner/1504243502.png" data-step="2">
+				</div>
+			</div>
+		</div>
+		<div class="step3-item step-item">
+			<img src="http://i1.douguo.net//upload/banner/1504243438.png" alt="step3" class="step-img step3">
+			<div class="step3-desc step-desc">
+				<div class=" step-detail">
+					<img class="detail-img" src="http://i1.douguo.net//upload/banner/1504243520.png" data-step="3">
+				</div>
+			</div>
+		</div>
+		<div class="step4-item step-item">
+			<img src="http://i1.douguo.net//upload/banner/1504243463.png" alt="step4" class="step-img step4">
+			<div class="step4-desc step-desc">
+				<div class=" step-detail">
+					<img class="detail-img" src="http://i1.douguo.net//upload/banner/1504243530.png" data-step="4">
+				</div>
+			</div>
+		</div>
+		<div class="step5-item step-item">
+			<img src="http://i1.douguo.net//upload/banner/1504243452.png" alt="step5" class="step-img step5">
+			<div class="step5-desc step-desc">
+				<div class=" step-detail">
+					<img class="detail-img" src="http://i1.douguo.net//upload/banner/1504243540.png" data-step="5">
+				</div>
+			</div>
+		</div>
+		<div class="step6-item step-item">
+			<img src="http://i1.douguo.net//upload/banner/1504243474.png" alt="step6" class="step-img step6">
+			<div class="step6-desc step-desc">
+				<div class=" step-detail">
+					<img class="detail-img" src="http://i1.douguo.net//upload/banner/1504243559.png" data-step="6">
+				</div>
+			</div>
+		</div>
+	</div>
+	<img src="http://i1.douguo.net//upload/banner/1504088045.png" class="game-submit-img">
+	<div class="hs-game-overlay hide"></div>
+	<div class="hs-overlay-content hide">
+		<!--success <img src="http://i1.douguo.net//upload/banner/1504248625.png" class="hs-overlay-img"> -->
+		<img src="http://i1.douguo.net//upload/banner/1504248610.png" class="hs-overlay-img">
+		<a href="javascript:void(0)" class="close-overlay"></a>
+	</div>
+</div>
+<script src="http://i1.douguo.net//static/wap/js/jquery-2.1.4.min.js"></script>
+<script src="http://i1.douguo.net/static/wap/js/rem.js?v=fami"></script>
+
+<script type="text/javascript">
+	var rootUrl = "http://i1.douguo.net//upload/banner/",
+		$overlay = $(".hs-game-overlay"), 
+		$overlayImg = $(".hs-overlay-img"),
+		$overlayContent = $(".hs-overlay-content");
+
+	$(".close-overlay").on("click",function(){
+		$overlay.addClass("hide");
+		$overlayContent.addClass("hide");
+	});
+
+	var $stepItem = $(".step-desc"), $stepImgs = $(".detail-img"), stepLen = $stepItem.length;
+
+	// 位置列表
+	// start:开始位置(距离文档顶部)。current：点击时的位置。
+	var pos = {
+		startX:0,
+		startY:0,
+		currentX:0,
+		currentY:0
+	}
+
+	// 存每一条的位置
+	var stepPos = [];
+	for(var i=0; i<stepLen; i++){
+		var idx = i+1;
+		stepPos.push({
+			X: getDocLeft($(".step"+idx+"-item").get(0)),
+			Y: getDocTop($(".step"+idx+"-item").get(0))
+		})
+	}
+	// 存每一条的高度
+	var stepHeight = [];
+	for(var h=0; h<stepLen; h++){
+		var idxh = h+1;
+		stepHeight.push({
+			Y: $(".step"+idxh+"-item").height()+20
+		})
+	}
+$(function(){	
+	
+for(var i=0;i<stepLen;i++){
+	var index = i+1
+	var stepDom = $(".step"+index+"-desc").get(0);
+	(function(arg){
+		stepDom.addEventListener("touchstart",function(e){
+			e.preventDefault();
+			pos.startX = getDocLeft(this);
+			pos.startY = getDocTop(this);
+
+			if (e.targetTouches.length == 1) {
+				// 在页面点击开始的初始位置
+	            pos.currentX = getPageX(e); 
+	            pos.currentY = getPageY(e);
+	        }
+			// console.log(pos)
+		},false)
+
+		stepDom.addEventListener("touchmove",function(e){
+			e.preventDefault();
+			// console.log(this)
+			if (e.targetTouches.length == 1) {         
+	            this.style.left = getPageX(e)  - pos.currentX  + 'px'; 
+	            this.style.top = getPageY(e)  - pos.currentY  + 'px';  
+	        }
+		},false)
+
+		stepDom.addEventListener("touchend",function(e){
+			e.preventDefault();
+			var current = {
+				that : $(this),
+				currentHtml : this, //当前html内容
+				currentHeight : this.scrollHeight,//移动的元素的高度
+				prevHeight:0  //元素高度相加，当前元素的偏移量
+			};
+			for(var k=0; k<stepLen; k++){
+				var endPos = getEndY(e);
+				if(k==5 && (endPos>stepPos[k]['Y'])){
+					switchItem($stepItem,current,k,arg);
+				}else if(k==0 && endPos < stepPos[k]['Y']){
+					switchItem($stepItem,current,k,arg)
+				}else if(endPos>stepPos[k]['Y'] && endPos<stepPos[k+1]['Y']){
+					switchItem($stepItem,current,k,arg);
+				} 
+			}
+		},false);
+	})(i);
+	
+}
+
+	// 提交信息
+	var stepData = [];
+	$(".game-submit-img").on("click",function(){
+		stepData = [];
+		$stepImgs = $(".detail-img");
+		for(var i=0; i<stepLen; i++){
+			stepData[i] = $($stepImgs[i]).attr("data-step");
+		}
+
+		$.ajax({
+			type:'post',
+			url:'',
+			data:{key:stepData},
+			dataType:'json',
+			success:function(msg){
+				if(msg.status == 'OK'){
+					$overlay.removeClass("hide");
+					$overlayContent.removeClass("hide");
+					$overlayImg.attr("src",rootUrl+"1504248625.png");
+				}else{
+					$overlay.removeClass("hide");
+					$overlayContent.removeClass("hide");
+					$overlayImg.attr("src",rootUrl+"1504248610.png");
+				}
+			}
+		})
+	})
+	
+
+})
+/**
+ * 向下移动
+ * @param  {[type]} items   [所有的条目]
+ * @param  {[type]} current [点击要移动的]
+ * @param  {[type]} k       [目标位置索引值:0-5]
+ * @param  {[type]} movekey [移动的索引值:0-5]
+ * @return {[type]}         [description]
+ */
+function switchItem(items,current,k,movekey){
+	// 交换(坑)
+	// 坑：交换html内容的时候
+	/* 
+	使用这种会有延迟，存储转换有问题,,请使用下面未注释的
+		var temp = $(items[movekey]).html();
+	 	$(items[movekey]).html($(items[k]).html());
+	 	$(items[k]).html(temp);
+	*/
+	var btmp = $(items[k]).html();
+	var temp = $(items[movekey]).html();
+	$(items[movekey]).html(btmp);
+	$(items[k]).html(temp);
+
+	// 将当前移动的内容进行定位
+	current.that.css({
+		top:current.prevHeight,
+		left:0
+	});
+
+}
+
+/**
+ * 距离文档左侧的距离
+ * @param  {[type]} dom [description]
+ * @return {[type]}     [description]
+ */
+function getDocLeft(dom){
+	return dom.getBoundingClientRect().left+document.documentElement.scrollLeft;
+}
+/**
+ * 距离文档顶部的距离
+ * @param  {[type]} dom [description]
+ * @return {[type]}     [description]
+ */
+function getDocTop(dom){
+	return dom.getBoundingClientRect().top+document.documentElement.scrollTop;
+}
+/**
+ * 当前点击处相对于页面的位置
+ * @param  {[type]} el [description]
+ * @return {[type]}    [description]
+ */
+function getPageX(el){
+	return el.targetTouches[0].pageX;
+}
+/**
+ * 当前点击处相对于页面的位置
+ * @param  {[type]} el [description]
+ * @return {[type]}    [description]
+ */
+function getPageY(el){
+	return el.targetTouches[0].pageY;
+}
+/**
+ * 获取点击结束时的位置
+ * @param  {[type]} el [description]
+ * @return {[type]}    [description]
+ */
+function getEndY(el){
+	return el.changedTouches[0].pageY;
+}
+</script>
+
