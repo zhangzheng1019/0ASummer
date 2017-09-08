@@ -1,4 +1,45 @@
 /**
+ * 两个HTML元素做交换（在循环中）
+ * @param  {[type]} items   [所有的条目]
+ * @param  {[type]} current [点击要移动的]
+ * @param  {[type]} k       [目标位置索引值:0-5]
+ * @param  {[type]} movekey [移动元素的索引值:0-5]
+ * @return {[type]}         [description]
+ */
+function switchItem(items,current,k,movekey){
+    // 交换(坑)
+    // 坑：交换时
+    /* 
+    使用这种会有延迟，存储有问题,,请使用下面未注释的
+        var temp = $(items[movekey]).html();
+        $(items[movekey]).html($(items[k]).html());
+        $(items[k]).html(temp);
+    */
+    var btmp = $(items[k]).html();
+    var temp = $(items[movekey]).html();
+    $(items[movekey]).html(btmp);
+    $(items[k]).html(temp);
+}
+
+// 坑：
+// 苹果设备不支持"2017年9月3日"这种格式
+// 转换为2017/09/03 这种格式
+/**
+ * [getSwitchDate 2017年9月3日->2017/09/03]
+ * @param  {[string]} date [2017年9月3日]
+ * @return {[type]}      [description]
+ *  坑：
+ *  苹果设备不支持"2017年9月3日"这种格式
+ *  转换为2017/09/03 这种格式
+ */
+function getSwitchDate(date) {
+    var date1 = Date.parse(date.replace(/年|月/g, "/"));
+    var date2 = Date.parse(date1.replace(/日/g, ""));
+    date = new Date(date2);
+    date = date.getTime();
+    return date;
+}
+/**
  * [is_array 判断是否数组arr中是否存在val属性]
  * @param  {[type]}  arr [数组]
  * @param  {[type]}  val [查看的val属性值]
