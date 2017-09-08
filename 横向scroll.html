@@ -1,0 +1,178 @@
+<!-- 
+	第一个之前加最后一个
+	最后一个后边加第一个
+	（开头两个和最后两个要一样）
+ -->
+<meta charset="utf-8">
+<style type="text/css">
+	html,body,menu,ul,ol,li,p,div,form,h1,h2,h3,h4,h5,h6,img,a img,input,textarea,fieldset{padding:0;margin:0;border:0;}
+	body{margin:0 auto;background:#f8f7f2;font-size:14px;font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif;}
+	ul li{list-style:none;}
+	a{color:#333;text-decoration:none;}
+	a:hover{text-decoration:none;}
+	a,img,i,span,li{-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;}
+	.relative{position:relative;}
+	.absolute{position:absolute;top:0;}
+	.wb100,body>section>img{display:block;width:100%;}
+	body{background: #63c2b3;}
+	/*基础样式*/
+	.scrol{width:100%;overflow:hidden;position:relative;padding:10px 0;}
+	.scrol .sline{white-space:nowrap;}
+	.sline .row{display:inline-block;vertical-align:top;text-align:center;color:#fff;opacity:.6;overflow:hidden}
+	.sline .row img{width:85%;border-top-left-radius:5px;border-top-right-radius:5px;}
+	.sline .row.act{opacity:1}
+	/*基础样式结束*/
+
+	/*扩展样式开始*/
+	.sline .row div.info{padding:10px;color:#000;background:#fff;width:85%;box-sizing:border-box;margin:0 auto;border-bottom-left-radius:5px;border-bottom-right-radius:5px;}
+	.sline a div.info span{display:inline-block;background:#e3b76a;padding:5px 10px;border-radius:17px;color:#fff;margin-top:10px;}
+	/*扩展样式结束*/
+	
+</style>
+<div class="scrol">
+    <div class="outline">
+	    <div class="sline" id="line">
+	        <a class="row" onclick="changeUrl('1553417')" href="javascript:void(0)">
+				<img src="http://i2.douguo.net/static/wap/img/activity/bosch/images/scroll_02.jpg" />
+				<div class="info">
+				  	<p>香嫩烤鸡配爽口沙拉</p>
+					<span>65.6kal</span>
+				</div>
+			</a>
+	        <a class="row" onclick="changeUrl('1582665')" href="javascript:void(0)">
+				<img src="http://i2.douguo.net/static/wap/img/activity/bosch/images/scroll_02.jpg" />
+				<div class="info">
+					<p>法国田螺酿蘑菇</p>
+					<span>96.4kal</span>
+			    </div>
+			</a>
+	        <a class="row" onclick="changeUrl('1581112')" href="javascript:void(0)">
+				<img src="http://i2.douguo.net/static/wap/img/activity/bosch/images/scroll_02.jpg" />
+				<div class="info">
+					<p>火龙果干谷物棒</p>
+					<span>156.5kal</span>
+				</div>
+			</a>
+	        <a class="row" onclick="changeUrl('1582625')" href="javascript:void(0)">
+				<img src="http://i2.douguo.net/static/wap/img/activity/bosch/images/scroll_02.jpg" />
+				<div class="info">
+					<p>裸麦无花果面包</p>
+					<span>164.5kal</span>
+				</div>
+			</a>
+	        <a class="row " onclick="changeUrl('1584461')" href="javascript:void(0)">
+				<img src="http://i2.douguo.net/static/wap/img/activity/bosch/images/scroll_02.jpg" />
+				<div class="info">
+					<p>铁扒黑松露南瓜什锦蔬</p>
+					<span>30.5kal</span>
+				</div>
+			</a>
+	        <a class="row" onclick="changeUrl('1553417')" href="javascript:void(0)">
+				<img src="http://i2.douguo.net/static/wap/img/activity/bosch/images/scroll_02.jpg" />
+				<div class="info">
+					<p>香嫩烤鸡配爽口沙拉</p>
+					<span>65.6kal</span>
+				</div>
+			</a>
+	        <a class="row" onclick="changeUrl('1582665')" href="javascript:void(0)">
+				<img src="http://i2.douguo.net/static/wap/img/activity/bosch/images/scroll_02.jpg" />
+				<div class="info">
+					<p>法国田螺酿蘑菇</p>
+					<span>96.4kal</span>
+				</div>
+			</a>
+	    </div>
+	</div>
+</div>
+<script src="http://i1.douguo.net//static/wap/js/jquery-2.1.4.min.js"></script>
+<script>
+	$(function(){
+		switchScroll("line");
+
+		/**
+		 * [changeUrl 根据是否在站内还是站外进行适配菜谱详情]
+		 * @param  {[number]} id [菜谱id]
+		 * @return {[null]}    [description]
+		 */
+		function changeUrl(id){
+			if(app=='1'){
+				window.location.href="recipes://www.douguo.com/details?id="+id;
+			}else{
+				window.location.href="http://m.douguo.com/cookbook/"+id+'.html';
+			}
+		}
+		/**
+		 * [switchScroll 横向滚动]
+		 * @param  {[string]} parent [id 值 第一层的父元素]
+		 * @return {[type]}        [null]
+		 */
+		function switchScroll(parent){
+			$width = $(document).width();
+			$height = $(document).height();
+			$row = parseInt($width / 2);
+			lineLen = $("#"+parent+" .row").length;
+
+			$("#"+parent+" .row").css({ width: $row });
+			$("#"+parent).css({ 'marginLeft': '-' + parseInt($row / 2) + 'px' });
+			$("#"+parent+" .row:eq(1)").addClass('act').siblings().removeClass('act');
+
+			var startX, moveEndX, X;
+			// var line = document.getElementById('line');
+			$("#"+parent).on("touchstart", function(e) {
+			    startX = e.originalEvent.changedTouches[0].pageX;
+			    startY = e.originalEvent.changedTouches[0].pageY;
+			});
+			var index = 1;
+			window.isAni = false;//是否按住
+			$("#"+parent).on("touchmove", function(e) {
+			    e.preventDefault();
+			    moveEndX = e.originalEvent.changedTouches[0].pageX;
+			    moveEndY = e.originalEvent.changedTouches[0].pageY;
+			    X = moveEndX - startX;
+			    Y = moveEndY - startY;
+			    if (window.isAni == true) {
+			        return false;
+			    }
+			    window.isAni = true;
+			    var newNum = 0;
+			    //            左划
+			    if (Math.abs(X) > 0 && X > 0) {
+			        index--;
+			        if (index == 0) {
+			            setTimeout(function() {
+			                $("#"+parent).css({ 'transition': '' });
+			                index = lineLen-2;
+			                newNum = -(index * $row - $row / 2);
+			                $("#"+parent).css({ 'marginLeft': newNum + 'px' });
+			                $("#"+parent+" .row:eq(" + index + ")").addClass('act').siblings().removeClass('act');
+			            }, 400)
+			        }
+			        $("#"+parent).css({ 'transition': 'margin-left 400ms linear' });
+			        newNum = -(index * $row - $row / 2);
+			        $("#"+parent).css({ 'marginLeft': newNum + 'px' });
+			        $("#"+parent+" .row:eq(" + index + ")").addClass('act').siblings().removeClass('act');
+			    }
+			    //            右划
+			    else if (Math.abs(X) > 0 && X < 0) {
+			        index++;
+			        if (index == lineLen-1) {
+			            setTimeout(function() {
+			                $("#"+parent).css({ 'transition': '' });
+			                index = 1;
+			                newNum = -(index * $row - $row / 2);
+			                $("#"+parent).css({ 'marginLeft': newNum + 'px' });
+			                $("#"+parent+" .row:eq(" + index + ")").addClass('act').siblings().removeClass('act');
+			            }, 400)
+			        }
+			        $("#"+parent).css({ 'transition': 'margin-left 400ms linear' });
+			        newNum = -(index * $row - $row / 2);
+			        $("#"+parent).css({ 'marginLeft': newNum + 'px' });
+			        $("#"+parent+" .row:eq(" + index + ")").addClass('act').siblings().removeClass('act');
+			    }
+			});
+			$("#"+parent).on("touchend", function(e) {
+			    window.isAni = false;
+			});
+		}
+	})
+</script>
