@@ -33,12 +33,13 @@ function switchItem(items,current,k,movekey){
  *  转换为2017/09/03 这种格式
  */
 function getSwitchDate(date) {
-    var date1 = Date.parse(date.replace(/年|月/g, "/"));
+    var date1 = date.replace(/年|月/g, "/");
     var date2 = Date.parse(date1.replace(/日/g, ""));
     date = new Date(date2);
     date = date.getTime();
     return date;
 }
+
 /**
  * [is_array 判断是否数组arr中是否存在val属性]
  * @param  {[type]}  arr [数组]
@@ -74,12 +75,12 @@ function removeArrVal(arr, val) {
 }
 
 /**
- * [$$ 获取和遍历匹配特定CSS选择符的DOM元素]
+ * [getClass 获取和遍历匹配特定CSS选择符的DOM元素]
  * @param  {[type]} selector [description]
  * @param  {[type]} context  [description]
  * @return {[type]}          [description]
  */
-function $$(selector, context) {
+function getClass(selector, context) {
     context = context || document;
     var elements = context.querySelectorAll(selector);
     return Array.prototype.slice.call(elements);
@@ -99,7 +100,7 @@ function $$(selector, context) {
 })(jQuery);
 /* 获取url地址中参数 
  * 适用于：www.baidu.com/act/20?detail=30&uid=109
- * 使用: $.getUrlParam('act'); //20
+ * 使用: getUrlParam('act'); //20
  */
 function getUrlParam(name) {
     var url = window.location.href;

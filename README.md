@@ -2,7 +2,13 @@
 日常总结
 
 # rule.js
-- **获取浏览器URL参数 getUrlParam()**
+- **两个HTML元素做交换（在循环中） switchItem()**
+- **转日期为时间戳 getSwitchDate("2017年9月3日")**
+- **判断是否数组arr中是否存在val属性 is_array()**
+- **删除数组中的某一个val属性 removeArrVal()**
+- **获取和遍历匹配特定CSS选择符的DOM元素 getClass()**
+- **获取url地址中参数 $.getUrlParam()**
+- **获取url地址中参数 getUrlParam()**
 - **获取光标位置 getCursortPosition()**
 - **设置光标位置 setCaretPosition()**
 - **获取选中文字 getSelectText()**
