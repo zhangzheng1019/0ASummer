@@ -1,0 +1,21 @@
+@charset "UTF-8";
+html,body,menu,ul,ol,li,p,div,form,h1,h2,h3,h4,h5,h6,img,a img,input,textarea,fieldset{padding:0;margin:0;border:0;}
+h1,h2,h3,h4,h5{font-weight:normal;}
+ul li{list-style:none;}
+a{color:#333;text-decoration:none;}
+a:hover{text-decoration:none;}
+*{-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;}
+img{border-style:none;}
+div{-webkit-tap-highlight-color:transparent;}
+input[type=button],input[type=text],input[type=password]{-webkit-appearance:none;outline:none;box-shadow:none;}
+.clearfix:after{clear:both;content:".";display:block;font-size:0;height:0;line-height:0;visibility:hidden}
+.clearfix{zoom:1;}
+body{margin:0 auto;font-size:14px;font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif;}
+.relative{position:relative;}
+.absolute{position:absolute;}
+.fixed{position:fixed;}
+.left{float:left;}
+.right{float:right;}
+.db{display:block;}
+.dib{display:inline-block;}
+.di{display:inline;}
