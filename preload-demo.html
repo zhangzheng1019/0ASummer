@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>preload Demo</title>
+	<script src="js/jquery.js"></script>
+	<style type="text/css">
+		@-webkit-keyframes pace-theme-center-circle-spin{
+			from{-webkit-transform:rotateY(0deg);}
+			to{-webkit-transform:rotateY(360deg);}
+		}
+		@-moz-keyframes pace-theme-center-circle-spin{
+			from{-moz-transform:rotateY(0deg);}
+			to{-moz-transform:rotateY(360deg);}
+		}
+		@-ms-keyframes pace-theme-center-circle-spin{
+			from{-ms-transform:rotateY(0deg);}
+			to{-ms-transform:rotateY(360deg);}
+		}
+		@-o-keyframes pace-theme-center-circle-spin{
+			from{-o-transform:rotateY(0deg);}
+			to{-o-transform:rotateY(360deg);}
+		}
+		@keyframes pace-theme-center-circle-spin{
+			from{transform:rotateY(0deg);}
+			to{transform:rotateY(360deg);}
+		}
+		.loading{width:100%;height:100%;position:absolute;left:0;top:0;z-index:10000;background-color:#fff;}
+		.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-perspective:12rem;-moz-perspective:12rem;-ms-perspective:12rem;-o-perspective:12rem;perspective:12rem;z-index:2000;position:absolute;height:6rem;width:6rem;margin:auto;top:0;left:0;right:0;bottom:0;}
+		.pace .pace-progress{position:fixed;z-index:2000;display:block;position:absolute;left:0;top:0;height:6rem;width:6rem!important;line-height:6rem;font-size:2rem;border-radius:50%;background:rgba(34,153,221,0.8);color:#fff;font-family:"Helvetica Neue",sans-serif;font-weight:100;text-align:center;-webkit-animation:pace-theme-center-circle-spin linear infinite 2s;-moz-animation:pace-theme-center-circle-spin linear infinite 2s;-ms-animation:pace-theme-center-circle-spin linear infinite 2s;-o-animation:pace-theme-center-circle-spin linear infinite 2s;animation:pace-theme-center-circle-spin linear infinite 2s;-webkit-transform-style:preserve-3d;-moz-transform-style:preserve-3d;-ms-transform-style:preserve-3d;-o-transform-style:preserve-3d;transform-style:preserve-3d;}
+	</style>
+	<script src="js/preload.min.js"></script>
+</head>
+<body>
+	 <div class="loading">
+        <div class="pace">
+            <div class="pace-progress">0</div>
+        </div>
+    </div>
+    <script>
+    	// 预加载图片
+        var loader = new Loader({
+            resources: [
+                'http://news.sohu.com/upload/zhongqiuzzx/images/13.png',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/1.jpg',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/3.png',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/18.png',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/8.png',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/10.png',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/logo.png',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/bg.jpg',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/15.png',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/5.png',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/12.png',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/2.png',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/17.png',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/7.png',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/14.png',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/share.jpg',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/4.png',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/19.png',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/9.png',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/11.png',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/1.png',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/16.png',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/6.png',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/20.png',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/b1.jpg',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/b2.jpg',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/b3.jpg',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/b4.jpg',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/b5.jpg',
+                'http://news.sohu.com/upload/zhongqiuzzx/images/b6.jpg'
+            ],
+            // onStart: function(total) {},
+            onProgress: function(current, total) {
+                var percent = parseInt(current / total * 100) + '%';
+                $('.pace-progress').text(percent);
+            },
+            onComplete: function(total) {
+                $('.loading').hide();
+                // initView();
+            }
+        });
+        loader.start();
+    </script>
+</body>
+</html>
