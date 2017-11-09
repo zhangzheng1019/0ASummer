@@ -1,0 +1,220 @@
+<meta charset="utf-8">
+<style type="text/css">
+	@charset "UTF-8";
+	html,body,menu,ul,ol,li,p,div,form,h1,h2,h3,h4,h5,h6,img,a img,input,textarea,fieldset{padding:0;margin:0;border:0;}
+	h1,h2,h3,h4,h5{font-weight:normal;}
+	ul li{list-style:none;}
+	a{color:#333;text-decoration:none;}
+	a:hover{text-decoration:none;}
+	a,img,i,span,li{-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;}
+	img{border-style:none;}
+	div{-webkit-tap-highlight-color:transparent;}
+	input[type=button],input[type=text],input[type=password]{-webkit-appearance:none;outline:none;box-shadow:none;}
+	.clearfix:after{clear:both;content:".";display:block;font-size:0;height:0;line-height:0;visibility:hidden}
+	.clearfix{zoom:1;}
+	body{margin:0 auto;font-size:14px;font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif;}
+	.relative{position:relative;}
+	.absolute{position:absolute;}
+	.fixed{position:fixed;}
+	.left{float:left;}
+	.right{float:right;}
+	.db{display:block;}
+	.dib{display:inline-block;}
+	.di{display:inline;}
+
+	.hide{display: none;}
+	.daojishi img,.djs-apply-use img{width:100%;display:block;}
+	.djs-apply-use-a{position:absolute;top:22%;left:25%;width:50%;bottom:4%;}
+
+	/*倒计时*/
+    .daojishi{background: #fff;}
+	.time_num{ width: 89%;margin: 0 auto;padding-top: 15px;padding-bottom: 15px;}
+	.time{ color: #FF7E00; padding: 4px 3px; font-size: .64rem;background-color: rgba(255,233,199,.67);margin-right: .1066rem;border-radius: 2px;box-shadow: inset 0px 0px 2px 2px;}
+	.time-text{ font-family: '微软雅黑'; color: #FF7E00;font-size: .48rem; }
+    .time-auto{ width: 100%; margin: auto; }
+    .time-auto b{ display: inline-block; }
+	.error-tip{background:#FF7E00;color:#fff;width:75%;position:fixed;left:10%;top:40%;text-align:center;font-size:.37rem;line-height:.58rem;padding:.267rem;border-radius:6px;}
+    /*兼容iPhone5*/
+    @media (device-height:568px) and (-webkit-min-device-pixel-ratio:2) {
+        .time{ padding: 4px 2px; }
+    }
+    /*兼容iPhone6*/
+    @media (device-height:667px) and (-webkit-min-device-pixel-ratio:2) { 
+        .time_num {width: 90%;}
+    }
+</style>
+
+<div class="daojishi">
+    <div class="time_num" id="times_wrap">
+        <div class="time-auto"> 
+    	    <b id='times_day'><b id="dayShi" class="time"></b><b id="dayGe" class="time"></b></b><span class="time-text">天</span>
+    	    <b id='times_hour'><b id="hourShi" class="time"></b><b id="hourGe" class="time"></b></b><span class="time-text">时</span>
+    	    <b id='times_minute'><b id="minuteShi" class="time"></b><b id="minuteGe" class="time"></b></b><span class="time-text">分</span>
+    	    <b id='times_second'><b id="secondShi" class="time"></b><b id="secondGe" class="time"></b></b><span class="time-text">秒后结束</span>
+        </div>
+    </div>
+</div>
+<div class="djs-apply-use relative">
+    <img src="http://i1.douguo.net//upload/banner/1509940443.jpg">
+    <a href="javascript:void(0)" class="djs-apply-use-a"></a>
+</div>
+<script src="http://i1.douguo.net/static/wap/js/jquery-2.1.4.min.js"></script>
+<script src="http://i1.douguo.net/static/wap/js/rem.js?v=fami"></script>
+<script>
+$(function() {
+    var nowDate = (new Date()).getTime();
+    var jstarttime = "2017年11月8日";
+    var jendtime = "2017年11月30日";
+    var starttime = getSwitchDate(jstarttime); //为兼容iphone,日期统一改为 2017/11/08 类似格式
+    var endtime = getSwitchDate(jendtime);
+
+    $(".djns").on("click",'.djs-apply-use-a', function() {
+        if (nowDate > starttime - 1 && nowDate < endtime + 1) {
+            // Todo ...
+        } else if (nowDate < starttime) {
+            $.usertips({ text: '试用时间还没有开始，请耐心等待呦！', time: 3000 });
+        } else if (nowDate > endtime) {
+            $.usertips({ text: '试用申请已经结束，请关注其他活动哟！', time: 3000 });
+        }
+    });
+
+
+    var timeDay = $("#times_day2");
+    var time = {
+    	Day:{
+    		s:$("#dayShi"),
+    		g:$("#dayGe")
+    	},
+    	Hour:{
+    		s:$("#hourShi"),
+    		g:$("#hourGe")
+    	},
+    	Minute:{
+    		s:$("#minuteShi"),
+    		g:$("#minuteGe")
+    	},
+    	Second:{
+    		s:$("#secondShi"),
+    		g:$("#secondGe")
+    	}
+
+    };
+ 
+    var per={
+    	second:1000,
+    	minute:60*1000,
+    	hour: 60*60*1000,
+    	day: 24*60*60*1000
+    }; 
+
+    
+    var disTime = {
+    	Day:{
+    		s:0,
+    		g:0
+    	},
+    	Hour:{
+    		s:0,
+    		g:0
+    	},
+    	Minute:{
+    		s:0,
+    		g:0
+    	},
+    	Second:{
+    		s:0,
+    		g:0
+    	}
+    };
+
+    var intDay, intHour, intMinute, intSecond;
+    var timeDistance=0;
+    var showTime = setInterval(function(){
+    	timeDistance = endtime - nowDate;
+    	if (timeDistance >= 0) {
+           
+            intDay = Math.floor(timeDistance / per.day);
+            timeDistance -= intDay * per.day;
+
+            intHour = Math.floor(timeDistance / per.hour);
+            timeDistance -= intHour * per.hour;
+
+            intMinute = Math.floor(timeDistance / per.minute);
+            timeDistance -= intMinute * per.minute;
+
+            intSecond = Math.floor(timeDistance / per.second);
+
+            if (intHour < 10){
+                intHour = '0' + intHour;
+            }
+            if (intMinute < 10){
+                intMinute = '0' + intMinute;
+            }
+            if (intSecond < 10){
+                intSecond = '0' + intSecond;
+            }
+
+            disTime.Day.g = getGeWei(intDay);
+            disTime.Day.s = getShiWei(intDay);
+            disTime.Hour.g = getGeWei(intHour);
+            disTime.Hour.s = getShiWei(intHour);
+            disTime.Minute.g = getGeWei(intMinute);
+            disTime.Minute.s = getShiWei(intMinute);
+            disTime.Second.g = getGeWei(intSecond);
+            disTime.Second.s = getShiWei(intSecond);
+
+        
+            time.Day.g.html(disTime.Day.g);
+            time.Day.s.html(disTime.Day.s);
+            time.Hour.g.html(disTime.Hour.g);
+            time.Hour.s.html(disTime.Hour.s);
+            time.Minute.g.html(disTime.Minute.g);
+            time.Minute.s.html(disTime.Minute.s);
+            time.Second.g.html(disTime.Second.g);
+            time.Second.s.html(disTime.Second.s);
+        } else {
+            time.Day.g.html(disTime.Day.g);
+            time.Day.s.html(disTime.Day.s);
+            time.Hour.g.html(disTime.Hour.g);
+            time.Hour.s.html(disTime.Hour.s);
+            time.Minute.g.html(disTime.Minute.g);
+            time.Minute.s.html(disTime.Minute.s);
+            time.Second.g.html(disTime.Second.g);
+            time.Second.s.html(disTime.Second.s);
+            clearInterval(showTime);
+        };
+        nowDate = ((nowDate/1000)+1)*1000;
+    }, 1000);
+
+
+});
+
+function getGeWei(val){
+	return val%10;
+}
+function getShiWei(val){
+	return (val-val%10)/10;
+}
+
+function getSwitchDate(dateTime) {
+    dateTime = dateTime.replace(/年|月/g, "/");
+    dateTime = new Date(Date.parse(dateTime.replace(/日/g, "")));
+    dateTime = dateTime.getTime();
+
+    return dateTime;
+}
+$.usertips = function(options) {
+    var dft = {
+        class: "error-tip",
+        text: "",
+        time: 1500
+    };
+    var ops = $.extend(dft, options);
+    var style = ops.class;
+    var cpTxt = '<div' + ' style="z-index:999" ' + 'class=' + style + '>' + ops.text + '</div>';
+    $('body').append(cpTxt);
+    $('.error-tip').fadeOut(ops.time, function() {
+        $(this).remove();
+    });
+};
+</script>

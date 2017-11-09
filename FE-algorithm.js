@@ -17,13 +17,10 @@ function unique(arr) {
     for (let i = 0; i < arr.length; i++) {
         if (!hashTable[arr[i]]) {
             hashTable[arr[i]] = true;
-            console.log(arr[i])
             data.push(arr[i]);
         }
     }
-    console.log(data);
     return data;
-
 }
 module.exports = unique;
 unique("aaaaaavvsdds");
