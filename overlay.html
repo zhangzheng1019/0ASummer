@@ -1,0 +1,51 @@
+<style type="text/css">
+	@charset "UTF-8";
+	html,body,menu,ul,ol,li,p,div,form,h1,h2,h3,h4,h5,h6,img,a img,input,textarea,fieldset{padding:0;margin:0;border:0;}
+	h1,h2,h3,h4,h5{font-weight:normal;}
+	ul li{list-style:none;}
+	a{color:#333;text-decoration:none;}
+	a:hover{text-decoration:none;}
+	a,img,i,span,li{-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;}
+	img{border-style:none;}
+	div{-webkit-tap-highlight-color:transparent;}
+	input[type=button],input[type=text],input[type=password]{-webkit-appearance:none;outline:none;box-shadow:none;}
+	.clearfix:after{clear:both;content:".";display:block;font-size:0;height:0;line-height:0;visibility:hidden}
+	.clearfix{zoom:1;}
+	body{margin:0 auto;font-size:14px;font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif;}
+	.relative{position:relative;}
+	.absolute{position:absolute;}
+	.fixed{position:fixed;}
+	.left{float:left;}
+	.right{float:right;}
+	.db{display:block;}
+	.dib{display:inline-block;}
+	.di{display:inline;}
+
+	.open-overlay { position: fixed; top: 0; right: 0; bottom: 0; left: 0; background: rgba(69, 69, 69, .27); display: none; z-index: 1;}
+	.overlay-content{ position: fixed; top: 50%; left: 50%; display: none;z-index: 1; -webkit-transform:translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%);  height: auto; }
+	.overlay-img{  width: 10rem; display: block; }
+	.colse-overlay { position: absolute; top: 10px; right: 25px; width: 40px; height: 40px; display: block; }
+	.see-rule {width: 100%;}
+	.see-rule img{width: 100%;display: block;}
+</style>
+<div class="open-overlay">
+	<img src="">
+</div>
+<div class="overlay-wrap"></div>
+<div class="overlay-content">
+	<img class="overlay-img" src="">
+	<span class="colse-overlay"></span>
+</div>
+<script src="./js/rem.min.js?v=fami"></script>
+<script type="text/javascript">
+$(function(){
+	$(".open-overlay").on("click",function(){
+		$(".overlay-wrap").show();
+		$(".overlay-content").show();
+	});
+	$(".colse-overlay").on("click",function(){
+		$(".overlay-wrap").hide();
+		$(".overlay-content").hide();
+	});
+});
+</script>
