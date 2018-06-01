@@ -6,13 +6,13 @@
 @keyframes moveToTop {
     from { }
     to {  transform: translateY(-100%); }
-}    
+}
 @-webkit-keyframes moveFromBottom {
     from { -webkit-transform: translateY(100%); }
 }
 @keyframes moveFromBottom {
     from { transform: translateY(100%); }
-}    
+}
 @-webkit-keyframes moveToBottom {
     from { }
     to { -webkit-transform: translateY(100%); }
@@ -31,7 +31,7 @@
  @-webkit-keyframes sco{
         0%{-webkit-transform:rotate(0deg);}
         100%{-webkit-transform:rotate(360deg);}
-    } 
+    }
     @keyframes sco{
         0%{transform:rotate(0deg);}
         100%{transform:rotate(360deg);}
@@ -63,7 +63,7 @@
 	<div class="wrap page" id="p0"><a href="#" onclick="transPage('#p0','#p1')">跳转</a></div>
 	<div class="wrap page hide" id="p1"><a href="#" onclick="transPage('#p1','#p0')">返回</a></div>
 </body>
-<script src="http://i1.douguo.net/static/img/wap/huodong/sycplh/js/zepto.min.js"></script>
+<script src="./js/zepto.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	$width = $(document).width();
@@ -84,14 +84,14 @@ $(function(){
  */
 function transPage (lastPage,nowPage) {
 	var outClass = 'page-moveToTop',
-	    inClass = 'page-moveFromBottom';   
+	    inClass = 'page-moveFromBottom';
 	    $(nowPage).removeClass("hide");
 	    $(lastPage).addClass(outClass);
 	    $(nowPage).addClass(inClass);
 	setTimeout(function(){
 	    $(lastPage).addClass("hide");
 	    $(lastPage).removeClass(outClass);
-	    $(nowPage).removeClass(inClass); 
-	},600) 
+	    $(nowPage).removeClass(inClass);
+	},600)
 };
 </script>
