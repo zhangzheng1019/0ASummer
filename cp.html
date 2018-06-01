@@ -27,7 +27,7 @@
 .icon-down:before{content:'';display:inline-block;width:0.4267rem;height:0.3rem;background-image:url(image/icon-down.png);background-repeat:no-repeat;background-size:100%;}
 .icon-top{display:none;left:4rem;top:82%;color:#fff;font-size:0.3467rem;text-align:center;}
 .icon-top:before{content:'';display:inline-block;width:0.4267rem;height:0.3rem;background-image:url(image/icon-top.png);background-repeat:no-repeat;background-size:100%;}
-/*.item-content{display:none;}*/
+/* .item-content{display:block;} */
 .info-thumb{width:1.53rem;border-radius:100%;}
 .info-remark{font-size:.53rem;color:#6c5344;}
 .info-name,.info-rank{font-size:.28rem;color:#6c5344;}
@@ -37,17 +37,15 @@
 .cp-id{background-color:#6c5344;color:#fff;padding:.13rem;border-radius:10px;}
 .cp-id::before{content:'ID';display:inline-block;}
 .cp-name{color:#f26539;font-size:.37rem;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
-.cp-conten-left{width:3.8rem;height:3.17rem;}
+.cp-conten-left{width:3.8rem;}
 .cp-img{width:3.8rem;border-top-left-radius:10px;border-bottom-left-radius:10px;}
-.cp-img-a::after{content:'点击查看菜谱 >>>>>';display:block;font-size:.24rem;background-color:rgba(51,51,51,0.51);color:#fff;position:absolute;right:0;bottom:.5rem;padding:.06rem;border-top-left-radius:5px;}
-.cp-content-right{width:4.58rem;padding-bottom:.11rem;background-color:#e6ddca;border-top-right-radius: 10px;border-bottom-right-radius: 10px;}
-.cp-comment{color:#6c5344;font-size:.28rem;padding:.11rem .11rem 0 .11rem;display:-webkit-box!important;overflow:hidden;text-overflow:ellipsis;word-break:break-all;-webkit-box-orient:vertical;-webkit-line-clamp:5;}
-.comment-item{padding-left:.1rem;font-size:.1rem}
-.comment-yy,.comment-yz,.comment-cy,.comment-cjyy{color:#f26539;font-size:.24rem;}
+.cp-img-a::after{content:'点击查看菜谱 >>>>>';display:block;font-size:.24rem;background-color:rgba(51,51,51,0.51);color:#fff;position:absolute;right:0;bottom:0;padding:.06rem;border-top-left-radius:5px;}
+.cp-content-right{width:4.58rem;height: 2.672rem;background-color:#e6ddca;border-top-right-radius: 10px;border-bottom-right-radius: 10px; display:flex; flex-wrap:wrap;align-items: center; justify-content: center}
+.cp-comment{color:#6c5344;font-size:.28rem;padding:.11rem;overflow:hidden;text-overflow:ellipsis;word-break:break-all;-webkit-box-orient:vertical;-webkit-line-clamp:5;}
+.comment-item{padding-left:.1rem;font-size:.1rem; width: 100%;}
+.stars-wrap{ display: inline-block;}
+.comment-yy,.comment-yz,.comment-cy,.comment-cjyy{color:#f26539;font-size:.24rem;width: 1.4rem;text-align: justify;text-align-last: justify;text-justify: distribute;display: inline-block;margin-right: .1rem;}
 .icon-star{width:.21rem;margin-left: -.05rem;}
-.comment-left{width: 1.73rem;}
-.comment-right{width: 2.1rem;}
-.comment-cjyy{letter-spacing:-.02rem;margin-right:.02rem;}
   </style>
 </head>
 
@@ -89,47 +87,56 @@
 								<a class="cp-img-a" href="javascript:void(0)"></a>
 							</div>
 							<div class="cp-content-right right dib">
-								<p class="cp-comment">点评:<br>“粗粮也可以高颜值。选用紫薯和山药，颜色搭配和营养都相得益彰，些许烹饪，即可方便地品尝到自然风味，吸收完整的养分。”</p>
-								
-								<div class="comment-item dib comment-left">
+								<div class="comment-item dib">
 									<span class="comment-yy">营养</span>
-									<img src="image/icon-star.png" class="icon-star dib">
-									<!-- <img src="image/icon-star.png" class="icon-star dib"> -->
-									<!-- <img src="image/icon-star.png" class="icon-star dib"> -->
-									<img src="image/icon-star.png" class="icon-star dib">
-									<img src="image/icon-star.png" class="icon-star dib">
+									<div class="stars-wrap">
+										<img src="image/icon-star.png" class="icon-star dib">
+										<!-- <img src="image/icon-star.png" class="icon-star dib"> -->
+										<!-- <img src="image/icon-star.png" class="icon-star dib"> -->
+										<img src="image/icon-star.png" class="icon-star dib">
+										<img src="image/icon-star.png" class="icon-star dib">
+									</div>
 								</div>
-								<div class="comment-item dib comment-right">
-									<span class="comment-yz">颜&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;值</span>
-									<img src="image/icon-star.png" class="icon-star dib">
-									<img src="image/icon-star.png" class="icon-star dib">
-									<img src="image/icon-star.png" class="icon-star dib">
-									<img src="image/icon-star.png" class="icon-star dib">
-									<img src="image/icon-star.png" class="icon-star dib">
+								<div class="comment-item dib ">
+									<span class="comment-yz">颜值</span>
+									<div class="stars-wrap">
+										<img src="image/icon-star.png" class="icon-star dib">
+										<img src="image/icon-star.png" class="icon-star dib">
+										<img src="image/icon-star.png" class="icon-star dib">
+										<img src="image/icon-star.png" class="icon-star dib">
+										<img src="image/icon-star.png" class="icon-star dib">
+									</div>
 								</div>
-								<div class="comment-item dib comment-left">
+								<div class="comment-item dib">
 									<span class="comment-cy">创意</span>
-									<img src="image/icon-star.png" class="icon-star dib">
-									<img src="image/icon-star.png" class="icon-star dib">
-									<img src="image/icon-star.png" class="icon-star dib">
-									<img src="image/icon-star.png" class="icon-star dib">
-									<img src="image/icon-star.png" class="icon-star dib">
+									<div class="stars-wrap">
+										<img src="image/icon-star.png" class="icon-star dib">
+										<img src="image/icon-star.png" class="icon-star dib">
+										<img src="image/icon-star.png" class="icon-star dib">
+										<img src="image/icon-star.png" class="icon-star dib">
+										<img src="image/icon-star.png" class="icon-star dib">
+									</div>
 								</div>
-								<div class="comment-item dib comment-right">
+								<div class="comment-item dib ">
 									<span class="comment-cjyy">厨具运用</span>
-									<img src="image/icon-star.png" class="icon-star dib">
-									<img src="image/icon-star.png" class="icon-star dib">
-									<img src="image/icon-star.png" class="icon-star dib">
-									<img src="image/icon-star.png" class="icon-star dib">
-									<img src="image/icon-star.png" class="icon-star dib">
+									<div class="stars-wrap">
+										<img src="image/icon-star.png" class="icon-star dib">
+										<img src="image/icon-star.png" class="icon-star dib">
+										<img src="image/icon-star.png" class="icon-star dib">
+										<img src="image/icon-star.png" class="icon-star dib">
+										<img src="image/icon-star.png" class="icon-star dib">
+									</div>
 								</div>
-							</div>	
+							</div>
 						</div>
+						<p class="cp-comment">
+							点评:
+							<br>“粗粮也可以高颜值。选用紫薯和山药，颜色搭配和营养都相得益彰，些许烹饪，即可方便地品尝到自然风味，吸收完整的养分。”</p>
 					</li>
-				</ul>	
+				</ul>
 	      </div>
 	    </div>
-	    
+
     </div>
   </div>
   <script type="text/javascript" src="js/jquery.js"></script>
@@ -175,7 +182,7 @@
      			display:'none'
      		});
      	})
-     } 
+     }
   })
   </script>
 </body>

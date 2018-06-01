@@ -39,11 +39,27 @@
     <img class="relative" src="http://i1.douguo.net//upload/banner/1504856339.jpg">
     <div class="time_num absolute" id="times_wrap">
         <div class="time-auto">
-    	    <b id='times_day' class=""><b id="dayShi" class="time"></b><b id="dayGe" class="time"></b></b> 
-    	    <b id='times_day2' class="time hide"></b><span class="time-text">天</span>
-    	    <b id='times_hour'><b id="hourShi" class="time"></b><b id="hourGe" class="time"></b></b><span class="time-text">时</span>
-    	    <b id='times_minute'><b id="minuteShi" class="time"></b><b id="minuteGe" class="time"></b></b><span class="time-text">分</span>
-    	    <b id='times_second'><b id="secondShi" class="time"></b><b id="secondGe" class="time"></b></b><span class="time-text">秒后结束</span>
+            <b id='times_day' class="">
+                <b id="dayShi" class="time"></b>
+                <b id="dayGe" class="time"></b>
+            </b>
+            <b id='times_day2' class="time hide"></b>
+            <span class="time-text">天</span>
+            <b id='times_hour'>
+                <b id="hourShi" class="time"></b>
+                <b id="hourGe" class="time"></b>
+            </b>
+            <span class="time-text">时</span>
+            <b id='times_minute'>
+                <b id="minuteShi" class="time"></b>
+                <b id="minuteGe" class="time"></b>
+            </b>
+            <span class="time-text">分</span>
+            <b id='times_second'>
+                <b id="secondShi" class="time"></b>
+                <b id="secondGe" class="time"></b>
+            </b>
+            <span class="time-text">秒</span>
         </div>
     </div>
 </div>
@@ -58,7 +74,7 @@ $(function() {
 
     var nowDate = (new Date()).getTime();
     var starttime = (new Date("2017/09/11")).getTime();
-    var endtime = (new Date("2017/09/14")).getTime();
+    var endtime = (new Date("2018/07/14")).getTime();
 
     $(".djns").on("click",'.apply-use-a', function() {
         if (nowDate > starttime - 1 && nowDate < endtime + 1) {
@@ -91,15 +107,15 @@ $(function() {
     	}
 
     };
- 
+
     var per={
     	second:1000,
     	minute:60*1000,
     	hour: 60*60*1000,
     	day: 24*60*60*1000
-    }; 
+    };
 
-    
+
     var disTime = {
     	Day:{
     		s:0,
@@ -124,7 +140,7 @@ $(function() {
     var showTime = setInterval(function(){
     	timeDistance = endtime - nowDate;
     	if (timeDistance >= 0) {
-           
+
             intDay = Math.floor(timeDistance / per.day);
             timeDistance -= intDay * per.day;
 
@@ -156,7 +172,7 @@ $(function() {
             disTime.Second.g = getGeWei(intSecond);
             disTime.Second.s = getShiWei(intSecond);
 
-        
+
             time.Day.g.html(disTime.Day.g);
             time.Day.s.html(disTime.Day.s);
             time.Hour.g.html(disTime.Hour.g);
