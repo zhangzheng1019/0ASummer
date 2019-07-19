@@ -246,3 +246,19 @@ function birthToAge(idcard) {
     return age;
 }
 module.exports = birthToAge;
+
+
+/**
+ * 验证 IPv4、IPv6 地址
+ * @param {string} IP
+ * @return {string}
+ */
+function validIPAddress(IP) {
+    var ipv4 = /^((\d|[1-9]\d|1\d\d|2([0-4]\d|5[0-5]))\.){4}$/;
+    var ipv6 = /^(([\da-fA-F]{1,4}):){8}$/
+    return ipv4.test(IP + ".") ? "IPv4" : ipv6.test(IP + ":") ? "IPv6" : "Neither";
+};
+module.exports = validIPAddress;
+
+
+
