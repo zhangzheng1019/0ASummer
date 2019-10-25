@@ -1,4 +1,48 @@
 /**
+ * 获取操作系统版本
+ * @returns {String}
+ */
+function detectOS() {
+      var OS = '';
+      var OSArray = {};
+      var sUserAgent = navigator.userAgent;
+      var isWin = (navigator.platform == "Win32") || (navigator.platform == "Windows");
+      var isMac = (navigator.platform == 'Mac68K') || (navigator.platform == 'MacPPC') ||
+            (navigator.platform == 'Macintosh') || (navigator.platform == 'MacIntel');
+      if (isWin) {
+            OSArray.Win2000 = (sUserAgent.indexOf("Windows NT 5.0") > -1 || sUserAgent.indexOf(
+                  "Windows 2000") > -1);
+            OSArray.WinXP = (sUserAgent.indexOf("Windows NT 5.1") > -1 || sUserAgent.indexOf("Windows XP") >
+                  -1);
+            OSArray.Win2003 = (sUserAgent.indexOf("Windows NT 5.2") > -1 || sUserAgent.indexOf(
+                  "Windows 2003") > -1);
+            OSArray.WinVista = (sUserAgent.indexOf("Windows NT 6.0") > -1 || sUserAgent.indexOf(
+                  "Windows Vista") > -1);
+            OSArray.Win7 = (sUserAgent.indexOf("Windows NT 6.1") > -1 || sUserAgent.indexOf("Windows 7") > -
+                  1);
+            OSArray.Win8 = (sUserAgent.indexOf("windows NT 6.2") > -1 || sUserAgent.indexOf("Windows 8") > -
+                  1);
+            OSArray.Win10 = (sUserAgent.indexOf("Windows NT 10") > -1 || sUserAgent.indexOf("Windows 10") >
+                  -1);
+      }
+      OSArray.Mac = isMac;
+      OSArray.Unix = (navigator.platform == "X11") && !isWin && !isMac;
+      OSArray.Linux = String(navigator.platform).indexOf("Linux") > -1;
+      OSArray.iphone = sUserAgent.indexOf('iPhone') > -1;
+      OSArray.ipod = sUserAgent.indexOf('iPod') > -1;
+      OSArray.ipad = sUserAgent.indexOf('iPad') > -1;
+      OSArray.Android = sUserAgent.indexOf('Android') > -1;
+      console.log(OSArray);
+
+      for (var i in OSArray) {
+            if (OSArray[i]) {
+                  OS = i;
+            } 
+      }
+      return OS;
+}
+
+/**
  * 两个HTML元素做交换（在循环中）
  * @param  {[type]} items   [所有的条目]
  * @param  {[type]} current [点击要移动的]
